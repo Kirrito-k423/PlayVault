@@ -1,0 +1,84 @@
+{
+  "name": "playvault",
+  "productName": "游迹 PlayVault",
+  "version": "0.2.3",
+  "private": true,
+  "description": "管理散落在磁盘里的游戏与安装包的 Windows 桌面游戏库",
+  "author": "PlayVault",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kirrito-k423/PlayVault.git"
+  },
+  "type": "module",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc --noEmit && vite build && node scripts/build-electron.mjs",
+    "start": "node scripts/start.mjs",
+    "test": "tsx --test tests/core.test.ts tests/metadata.test.ts tests/paths.test.ts",
+    "test:desktop": "node scripts/visual-launcher.mjs",
+    "test:persistence": "node scripts/persistence-regression.mjs",
+    "test:e2e": "node scripts/e2e.mjs",
+    "demo:download": "node scripts/seed-catalog.mjs",
+    "screenshots": "node scripts/capture-readme.mjs",
+    "package": "npm run build && node scripts/package.mjs",
+    "format": "prettier --write src electron shared tests scripts vite.config.ts"
+  },
+  "build": {
+    "appId": "local.playvault.launcher",
+    "productName": "PlayVault",
+    "artifactName": "PlayVault-${version}-Windows.exe",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/*.cjs",
+      "package.json",
+      "!node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "resources",
+        "to": "catalog"
+      },
+      {
+        "from": "assets/icon.ico",
+        "to": "assets/icon.ico"
+      }
+    ],
+    "electronDist": "node_modules/electron/dist",
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "assets/icon.ico",
+      "signExecutable": false
+    },
+    "portable": {
+      "requestExecutionLevel": "user"
+    }
+  },
+  "dependencies": {
+    "hls.js": "^1.7.4",
+    "lucide-react": "^1.73.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "electron": "^45.3.3",
+    "electron-builder": "^26.18.0",
+    "esbuild": "^0.28.2",
+    "prettier": "^3.10.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}

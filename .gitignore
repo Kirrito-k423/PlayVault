@@ -1,0 +1,24 @@
+node_modules/
+dist/
+dist-electron/
+release/
+data/
+.test-data/
+artifacts/
+*.log
+.cache/
+backups/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+.DS_Store
+Thumbs.db
+# Downloaded store media stays outside the source distribution.
+resources/art/
+# One-off helpers for this computer's personal library.
+scripts/match-local-stellar.mjs
+scripts/verify-library-fixes.mjs

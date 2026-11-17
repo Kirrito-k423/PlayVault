@@ -1,0 +1,16 @@
+{
+  "3489700-overview.jpg": {
+    "title": "Stellar Blade artwork featuring EVE",
+    "source": "https://www.playstation.com/en-us/games/stellar-blade/",
+    "asset": "https://gmedia.playstation.com/is/image/SIEPDC/stellar-blade-overview-background-art-01-desktop-en-12jan24?wid=1920&fmt=jpeg&qlt=90"
+  },
+  "3489700-wallpaper.jpg": {
+    "title": "Stellar Blade key art",
+    "source": "https://www.playstation.com/en-us/games/stellar-blade/",
+    "asset": "https://gmedia.playstation.com/is/image/SIEPDC/stellar-blade-video-desktop-hero-1920x1080-01-en-12jan24-1?wid=1920&fmt=jpeg&qlt=90"
+  },
+  "steam-art": {
+    "source": "https://store.steampowered.com/",
+    "description": "Game logos, covers, heroes, screenshots and trailers are fetched from Steam storefront metadata and its public asset CDN."
+  }
+}
